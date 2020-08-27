@@ -1,0 +1,29 @@
+<div class="main" style="padding: 2% 0%;">
+    <div class="container">
+        <mat-card >
+        <mat-tab-group mat-align-tabs="center" animationDuration="1000ms">
+            
+                <mat-tab  matBadge="8" matBadgePosition="after" matBadgeColor="primary" label="FROM ARTIST">
+                    <ul *ngFor="let pwt of pwts">
+                        <li *ngIf="pwt.portrait==='true' && pwt.status==='FinalAccept'" style="color: grey">Your portrait request is accepted by they artist, view details in VIEW MY ORDERS and the requested id is {{pwt.id}}</li>
+                        <li *ngIf="pwt.portrait==='true' && pwt.status==='Reject'" style="color: grey">Your portrait request is rejected by the artist and the requested id is {{pwt.id}}</li>
+                        <li *ngIf="pwt.wallpaint==='true' && pwt.status==='FinalAccept'" style="color: grey">Your wallpaint request is accepted by the artist, the requested id is {{pwt.id}}</li>
+                        <li *ngIf="pwt.wallpaint==='true' && pwt.status==='Reject'" style="color: grey">Your wallpaint request is rejected by the artist and the requested id is {{pwt.id}}</li>
+                    </ul>
+                </mat-tab>
+                <mat-tab  matBadge="8" matBadgePosition="after" matBadgeColor="accent" label="USUAL ALERTS">
+                    <ul *ngFor="let order of orders">
+                        <div *ngIf="order.status==='Artist Rejected' || order.status==='Order Cancelled';else elseStatus">
+                            <li *ngIf="order.status==='Artist Rejected'"  style="color: grey">Your order has been rejected by the artist. And the order id is '{{order.id}}' and it's delivery status is '{{order.status}}'.</li>
+                            <li *ngIf="order.status==='Order Cancelled'"  style="color: grey">Order has been successfully Cancelled by you. And the order id is '{{order.id}}' and it's delivery status is '{{order.status}}'.</li>
+                        </div>
+                        <ng-template #elseStatus>
+                            <li style="color: grey;">Successfully placed the order. And the order id is '{{order.id}}' and it's delivery status is '{{order.status}}'.</li>
+                        </ng-template>
+                    </ul>
+                </mat-tab>
+
+        </mat-tab-group>
+    </mat-card>
+    </div>
+</div>

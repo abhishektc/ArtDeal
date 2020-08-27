@@ -1,0 +1,133 @@
+.main{
+  min-height: 100%;
+  padding: 2% 3% 2% 3%;
+  background-image: linear-gradient(to bottom, white, orange,yellow, green, violet); 
+}
+
+@media (max-width: 650px) {
+    .column {
+    width: 100%;
+    display: block;
+    }
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.container {
+    padding: 0 16px;
+}
+
+.container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.title {
+    color: grey;
+}
+
+.button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.button:hover {
+    background-color: #555;
+}
+a{
+    text-decoration: none;
+}
+
+.row {
+  margin: auto;
+  margin-left: 30px;
+  width: 100%;
+}
+.column {
+  float: left;
+  width: 20%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+.column :hover{
+  cursor: pointer;
+}
+
+@media (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+.product-pic a img{
+	display:block;
+	margin: 0 auto;
+}
+
+.product-pic p{
+	padding: 0em 1em 0em 1em;
+	color: #D6D6D6;	
+}
+.product-pic p span{
+	color: #999;
+	font-size: 1.0em;	
+} 
+.product-pic p a{
+	display: block;
+	color: #2A2323;
+	font-size: 1.375em;
+}
+.product-pic p a small{
+	font-size:0.8em;
+}
+.product-info-cust{
+	padding: 0.5em 1em;
+	text-align: center;
+}
+.product-info-cust a{
+	color: #2A2323;
+	text-transform: uppercase;
+	font-size: 0.875em;
+	font-weight: 600;
+}
+.product-info{
+	background-color: gray;
+	border-top: 1px solid #E9E9E9;
+}

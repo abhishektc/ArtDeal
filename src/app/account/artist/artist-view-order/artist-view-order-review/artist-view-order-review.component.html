@@ -1,0 +1,22 @@
+<div style="width: 100%;" align="center">
+    <h4>Customer Review</h4>
+    <img *ngIf="pwt" src="data:image/jpeg;base64,{{pwt.picByteFile1}}"  width="100px" height="100px">
+    <img *ngIf="paintings" src="data:image/jpeg;base64,{{paintings.picByteFile1}}"  width="100px" height="100px">
+    <p>
+        <img *ngIf="data.rating === 0.5" src="../assets/images/0.5.png" width="110px" height="25px">
+        <img *ngIf="data.rating === 1" src="../assets/images/1.png" width="110px" height="25px">
+        <img *ngIf="data.rating === 1.5" src="../assets/images/1.5.png" width="110px" height="25px">
+        <img *ngIf="data.rating === 2" src="../assets/images/2.png" width="110px" height="25px">
+        <img *ngIf="data.rating === 2.5" src="../assets/images/2.5.png" width="110px" height="25px">
+        <img *ngIf="data.rating === 3" src="../assets/images/3.png" width="110px" height="25px">
+        <img *ngIf="data.rating === 3.5" src="../assets/images/3.5.png" width="110px" height="25px">
+        <img *ngIf="data.rating === 4" src="../assets/images/4.png" width="110px" height="25px">
+        <img *ngIf="data.rating === 4.5" src="../assets/images/4.5.png" width="110px" height="25px">
+        <img *ngIf="data.rating === 5" src="../assets/images/5.png" width="110px" height="25px">
+    </p>
+    <p *ngIf="paintings">Paint Name: {{paintings.title}}</p>
+    <p *ngIf="pwt">Portrait Type: {{pwt.type}}</p>
+    <p>Customer Name: {{user.fullname}}</p>
+    <p>Comment: {{data.comment}}</p>
+    <p>Status: Delivered</p>
+</div>

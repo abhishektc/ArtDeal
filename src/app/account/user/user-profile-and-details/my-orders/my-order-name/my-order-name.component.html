@@ -1,0 +1,8 @@
+<div *ngIf="paintings">
+    <span style="float: left;font-size: 25px;font-weight: 600;padding-top: 20px;">Paint Name: {{ paintings.title }}</span>
+    <img style="float: right;" src="data:image/jpeg;base64,{{paintings.picByteFile1}}" width="100px" height="90px">
+</div>
+<div *ngIf="pwt">
+    <span style="float: left;font-size: 25px;font-weight: 600;padding-top: 20px;">Portrait Type: {{ pwt.type }}</span>
+    <img style="float: right;" src="data:image/jpeg;base64,{{pwt.picByteFile1}}" width="100px" height="90px">
+</div>

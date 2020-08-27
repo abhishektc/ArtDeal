@@ -1,0 +1,55 @@
+<div class="main" style="padding: 10px;" >
+    <mat-card class="main1" *ngIf="!isLoggedInArtist">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h3>Artist SignIn</h3>
+            <div class="alert alert-danger" *ngIf="isLoginFailed">
+                <strong>{{errorMessage}}</strong>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form [formGroup]="artistLoginForm" (ngSubmit)="artistLogin(artistLoginForm)" name="form" role="form">
+                <div class="form-group">
+                    <label class="form-control-label" for="email">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="username"
+                            formControlName="username">
+                    <div *ngIf="artistLoginForm.controls.username.errors && (artistLoginForm.controls.username.touched || artistLoginForm.controls.username.dirty)">
+                        <div style="color: red;" *ngIf="artistLoginForm.hasError('required','username')">
+                            User Name is Required
+                        </div>
+                        <div style="color: red;" *ngIf="artistLoginForm.hasError('pattern','username')">
+                            User Name is Invalid format.
+                        </div>
+                        <div style="color: red;" *ngIf="artistLoginForm.hasError('minlength','username')">
+                            User Name must be 3 characters long
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="password"
+                            formControlName="password">
+                    <div *ngIf="artistLoginForm.controls.password.errors && (artistLoginForm.controls.password.touched || artistLoginForm.controls.password.dirty)">
+                        <div style="color: red;" *ngIf="artistLoginForm.hasError('required','password')">
+                            Password is Required
+                        </div>
+                        <div style="color: red;" *ngIf="artistLoginForm.hasError('minlength','password')">
+                            Password minimum length is 5
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!artistLoginForm.valid">SignIn</button>
+                <br><br>
+            </form>
+            <p></p>
+            <div class="alert alert-warning">
+                <span>New Artist?</span>
+                <a routerLink="/artist/register" routerLinkActive="router-link-active"  class="alert-link" > Register</a>
+            </div>
+        </div>
+    </div>
+</mat-card>
+</div>
+  

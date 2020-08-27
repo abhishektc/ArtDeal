@@ -1,0 +1,18 @@
+<div class="main">
+    <div class="container" style="height: 100%;padding: 2%;">
+        <a style="text-decoration: none;"  [routerLink]="['/user/myOrderDetails', order.id]" routerLinkActive="router-link-active" *ngFor="let order of orders" >
+            <mat-card style="height: 150px;padding: 1% 10%;margin: 1%;">
+                <div style="height: 100px;">
+                    <app-my-order-name *ngIf="order.paintingsid" [paintingsid]="order.paintingsid"></app-my-order-name>
+                    <app-my-order-name *ngIf="order.pwtid" [pwtid]="order.pwtid"></app-my-order-name>
+                </div>
+                <mat-divider></mat-divider>
+                <div style="height: 50px;">
+                    <span>{{order.status}}</span>
+                </div>
+            </mat-card>
+        </a>
+        <mat-toolbar *ngIf="length <= 0" style="text-align: center;background-color: rgb(224, 67, 67);">NO ORDERS</mat-toolbar>
+
+    </div>
+</div>

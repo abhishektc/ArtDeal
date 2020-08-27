@@ -1,0 +1,53 @@
+.main {
+    min-height: 100%;
+    background-image: linear-gradient(to bottom, white, orange,yellow, violet); 
+}
+.twogrid{
+    width: 50%;
+    float: left;
+}
+.twogrid img{
+    height: 400px;
+    width: 500px;
+}
+.userinfo{
+    width: 50%;
+    float: left;
+}
+@media screen and (max-width: 1300px) {
+    .twogrid img{
+        height: 350px;
+        width: 410px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .twogrid img{
+        height: 300px;
+        width: 300px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .twogrid img{
+        height: 300px;
+        width: 270px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .twogrid{
+        width: 100%;
+    }
+    .twogrid img{
+        width: 100%;
+        height: 300px;
+        width: 250px;
+    }
+    .userinfo{
+        padding-top: 10px;
+        width: 100%;
+        
+    }
+    
+}
+@media screen and (max-width: 400px) {
+
+}

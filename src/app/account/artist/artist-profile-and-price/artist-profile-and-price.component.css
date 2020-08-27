@@ -1,0 +1,49 @@
+.main {
+    min-height: 100%;
+    background-image: linear-gradient(to bottom, white, orange,yellow, violet); 
+}
+mat-card {
+    margin: 30px 150px;
+
+}
+@media screen and (max-width: 1300px) {
+    mat-card {
+        margin: 30px 70px;
+    }
+}
+@media screen and (max-width: 900px) {
+    mat-card {
+        margin: 20px 50px;
+    }
+}
+@media screen and (max-width: 600px) {
+    mat-card {
+        margin: 15px;
+    }
+    
+}
+
+#newartist{
+	width: 160px;
+	height: 200px;
+	border: 5px solid white;
+	border-radius: 100px;
+}
+#new{
+    width: 160px;
+    height: 200px;
+    border: 5px solid white;
+    border-radius: 100px;
+}
+#abc{
+    width: 160px;
+    height: 200px;
+    border: 5px solid white;
+    border-radius: 100px;
+    /*display: none;*/	
+}
+#upload-photo {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}

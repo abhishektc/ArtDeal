@@ -1,0 +1,217 @@
+<div class="main" *ngIf="!loading">
+	<div class="profileImg">
+		<img src="../assets/images/userbg.jpg" >
+		<div class="profile" align="center">
+			<img src="../assets/images/ii.png">
+			<p>{{fullname}}</p>
+		</div>
+		<mat-card class="profileExp">
+			<ul>
+				<li>Experience</li>
+				<li>{{experience}} year</li>
+			</ul>
+		</mat-card>
+		<mat-card class="profileSold">
+			<ul>
+				<li>Sold Paintings</li>
+				<li>{{soldPaintingsCount}}</li>
+			</ul>
+		</mat-card>
+		<mat-card class="profileRank">
+			<ul>
+				<li>Rank</li>
+				<li *ngIf="artists.rankReview === 0"><img src="../assets/images/0.png"></li>
+				<li *ngIf="artists.rankReview > 0 && artists.rankReview < 1"><img src="../assets/images/0.5.png"></li>
+				<li *ngIf="artists.rankReview >= 1 && artists.rankReview < 1.5"><img src="../assets/images/1.png"></li>
+				<li *ngIf="artists.rankReview >= 1.5 && artists.rankReview < 2"><img src="../assets/images/1.5.png"></li>
+				<li *ngIf="artists.rankReview >= 2 && artists.rankReview < 2.5"><img src="../assets/images/2.png"></li>
+				<li *ngIf="artists.rankReview >= 2.5 && artists.rankReview < 3"><img src="../assets/images/2.5.png"></li>
+				<li *ngIf="artists.rankReview >= 3 && artists.rankReview < 3.5"><img src="../assets/images/3.png"></li>
+				<li *ngIf="artists.rankReview >= 3.5 && artists.rankReview < 4"><img src="../assets/images/3.5.png"></li>
+				<li *ngIf="artists.rankReview >= 4 && artists.rankReview < 4.5"><img src="../assets/images/4.png"></li>
+				<li *ngIf="artists.rankReview >= 4.5 && artists.rankReview < 5"><img src="../assets/images/4.5.png"></li>
+				<li *ngIf="artists.rankReview === 5"><img src="../assets/images/5.png"></li>
+			</ul>
+		</mat-card>
+		<mat-card class="profileWebsite">
+			<ul>
+				<li>Website</li>
+				<li>{{artists.website}}</li>
+			</ul>
+		</mat-card>
+		<mat-card class="profileAccStatus">
+			<ul>
+				<li>Acc Status</li>
+				<li>{{artists.accStatus}}</li>
+			</ul>
+		</mat-card>
+	</div>
+
+	<mat-card class="aboutme">
+		  <span>About me!</span>
+		  <p>{{artists.description}}</p>		  
+	</mat-card>
+
+	<mat-card class="available" *ngIf="!portraitRequest && !wallRequest">
+		<span class="av">Available</span>
+		<br>
+		<div class="row" align="center" *ngIf="artists.price">
+			<div class="column1">
+				<div *ngIf="artists.isportrait === 'true'; else elseblocks">
+					<button class="btn" *ngIf="showUserBoard" (click)="getPortraitRequest()"><span>Request for portrait</span></button>
+					<button class="btn" *ngIf="!showUserBoard" (click)="requestLogin()"><span>Request for portrait</span></button>
+					<p>Price: {{artists.price.portraitPrice | currency:"INR"}}</p>
+				</div>
+				<ng-template #elseblocks>
+					<button  class="btn disable">Request for portrait</button>
+				</ng-template>
+			</div>
+			<div class="column1">
+				<div *ngIf="artists.iswallpainter === 'true'; else elseblock">
+					<button class="btn" *ngIf="showUserBoard" (click)="getWallRequest()"><span>Request to paint on wall&apos;s</span></button>
+					<button class="btn" *ngIf="!showUserBoard" (click)="requestLogin()"><span>Request to paint on wall&apos;s</span></button>
+					<p>Price: {{artists.price.wallpaintPrice | currency:"INR"}}</p>
+				</div>
+				<ng-template #elseblock>
+					<button  class="btn disable">Request for paint on Wall</button>
+				</ng-template>
+			</div>
+		</div>
+		<h4 *ngIf="!artists.price" align="center">The artist is not yet given the price details, sorry</h4>
+		
+	</mat-card>
+
+	<mat-card *ngIf="portraitRequest">
+		<div class="portrait">
+			<div align="center">
+				<span style="font-size:28px;color:black">To draw your portrait I need some data.</span>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-8">
+					<form [formGroup]="portraitForm" name="form">
+						<div class="row">
+							<div class="col">
+								<div class="form-group">
+									<label class="form-control-label" for="contact">PRICE</label>
+									<label class="form-control">{{artists.price.portraitPrice | currency:"INR"}}</label>
+								</div>
+							</div>
+							<div class="col">
+								<div class="form-group">
+									<label for="exampleFormControlSelect1">TYPE OF PORTRAIT*</label>
+									<select class="form-control" id="exampleFormControlSelect1" id="portrait" name="portrait"
+										formControlName="portrait">
+										<option value="Color Portrait">Color Portrait</option>
+										<option value="Sketch Portrait">Sketch Portrait</option>
+									</select>
+									<div *ngIf="portraitForm.controls.portrait.errors && (portraitForm.controls.portrait.touched || portraitForm.controls.portrait.dirty)">
+										<div style="color: red;" *ngIf="portraitForm.hasError('required','portrait')">
+											TYPE OF PORTRAIT is Required
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<div class="form-group">
+									<label class="form-control-label" for="sampleArt2">UPLOAD YOUR IMAGE*</label>
+									<div class="custom-file">
+										<input type="file" accept="image/*" (change)="selectPortraitImage($event)" class="form-control" formControlName="portraitImage">
+									</div>
+									<div *ngIf="portraitForm.controls.portraitImage.errors && (portraitForm.controls.portraitImage.touched || portraitForm.controls.portraitImage.dirty)">
+										<div style="color: red;" *ngIf="portraitForm.hasError('required','portraitImage')">
+											Image is Required
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col" align="center">
+								<br>
+								<button type="submit" class="btn btn-danger" [disabled]="!portraitForm.valid" (click)="savePortraitForm(portraitForm)">REQUEST</button>&nbsp;
+								<button type="submit" class="btn btn-danger" (click)="back()">BACK</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</mat-card>
+
+	<mat-card *ngIf="wallRequest">
+		<div class="portrait">
+			<div align="center">
+				<span style="font-size:28px;color:black">To draw on your wall I need some data.</span>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-8">
+					<form [formGroup]="wallForm" name="form">
+						<div class="row">
+							<div class="col">
+								<div class="form-group">
+									<label class="form-control-label" for="contact">PRICE</label>
+									<label class="form-control">{{artists.price.wallpaintPrice | currency:"INR"}}</label>
+								</div>
+							</div>
+							<div class="col">
+								<div class="form-group">
+									<label for="exampleFormControlSelect1">TYPE*</label>
+									<select class="form-control" id="exampleFormControlSelect1" id="wall" name="wall"
+										formControlName="wall">
+										<option value="Design">Design</option>
+										<option value="Text Design">Text Design</option>
+										<option value="Picture Design">Picture Design</option>
+									</select>
+									<div *ngIf="wallForm.controls.wall.errors && (wallForm.controls.wall.touched || wallForm.controls.wall.dirty)">
+										<div style="color: red;" *ngIf="wallForm.hasError('required','wall')">
+											Type is Required
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<div class="form-group">
+									<label class="form-control-label" for="sampleArt2">UPLOAD YOUR IMAGE*</label>
+									<div class="custom-file">
+										<input type="file" accept="image/*" (change)="selectWallImage($event)" class="form-control" formControlName="wallImage">
+									</div>
+									<div *ngIf="wallForm.controls.wallImage.errors && (wallForm.controls.wallImage.touched || wallForm.controls.wallImage.dirty)">
+										<div style="color: red;" *ngIf="wallForm.hasError('required','wallImage')">
+											Image is Required
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col" align="center">
+								<br>
+								<button type="submit" class="btn btn-danger" [disabled]="!wallForm.valid" (click)="saveWallForm(wallForm)">REQUEST</button>&nbsp;
+								<button type="submit" class="btn btn-danger" (click)="back()">BACK</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</mat-card>
+
+	<mat-card class="gallery" *ngIf="!portraitRequest && !wallRequest">
+		<span class="gaName">Explore My Gallery</span>
+		<br>
+		<div class="row" align="center">
+			<div class="column" *ngFor="let painting of paintings">
+				<a [routerLink]="['/artist/paintDetails',painting.id]" routerLinkActive="router-link-active"> 
+					<img src="data:image/jpeg;base64,{{painting.picByteFile1}}" class="hover-shadow">
+				</a>
+				<span>Price: {{painting.price | currency:"INR"}}</span><br>
+				<span>Status: {{painting.status}}</span>
+			</div>
+			
+		</div>
+		<h4 align="center" *ngIf="length===0">No Paintings yet</h4>	
+	</mat-card>
+</div>
+<div class="main" align="center" *ngIf="loading">
+	<mat-spinner></mat-spinner>
+</div>

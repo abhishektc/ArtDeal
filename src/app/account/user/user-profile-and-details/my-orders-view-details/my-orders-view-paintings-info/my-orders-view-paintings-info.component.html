@@ -1,0 +1,96 @@
+<div *ngIf="paintings">
+    <div style="height: 190px;">
+        <br>
+        <div style="float: left;font-size: 18px;color: grey;">
+            <p>Paint Name: {{paintings.title}}</p>
+            <app-my-orders-view-artist-info  [artistid]="paintings.artistid"></app-my-orders-view-artist-info>
+            <p>Price: {{paintings.price | currency:"INR":true}}</p>
+        </div>
+        <div style="float: right;">
+            <a [routerLink]="['/artist/paintDetails/', paintings.id]" routerLinkActive="router-link-active" >                                         
+                <img src="data:image/jpeg;base64,{{paintings.picByteFile1}}" width="155px" height="155px">
+            </a>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    
+    <div class="row" style="height: 190px;padding: 2%;">
+        <div class="col-md-6">
+            <table>
+                <tr>
+                    <th style="color:grey;width: 300px;font-size: 25px">Price Details</th>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    
+                    <td>{{paintings.price | currency:"INR"}}</td>
+                </tr>    
+                <ng-container>
+                    <tr>
+                        <td>Delivery charges</td>
+                        <td>{{50 | currency:"INR"}}</td>
+                    </tr>
+                    <mat-divider></mat-divider>
+                    <tr style="font-weight: 600;">
+                        <td>Total Amount: </td>
+                        <td>{{paintings.price + 50 | currency:"INR"}}</td>
+                    </tr>
+                    <mat-divider></mat-divider>
+                </ng-container>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <div style="float: left;margin-left: 15%;color:grey;font-size:20px;">
+                <th style="font-size: 25px">Payment</th>
+                <p>Cash on Delivery</p>
+            </div>
+        </div>
+    </div>    
+</div>
+<div *ngIf="pwt">
+    <div style="height: 190px;">
+        <br>
+        <div style="float: left;font-size: 18px;color: grey;">
+            <p>Portrait Type: {{pwt.type}}</p>
+            <app-my-orders-view-artist-info  [artistid]="pwt.artistid"></app-my-orders-view-artist-info>
+            <p>Price: {{pwt.price | currency:"INR"}}</p>
+        </div>
+        <div style="float: right;">                                        
+                <img src="data:image/jpeg;base64,{{pwt.picByteFile1}}" width="155px" height="155px">
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    
+    <div class="row" style="height: 190px;padding: 2%;">
+        <div class="col-md-6">
+            <table>
+                <tr>
+                    <th style="color:grey;width: 300px;font-size: 25px">Price Details</th>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    
+                    <td>{{pwt.price | currency:"INR"}}</td>
+                </tr>    
+                <ng-container>
+                    <tr>
+                        <td>Delivery charges</td>
+                        <td>{{50 | currency:"INR"}}</td>
+                    </tr>
+                    <mat-divider></mat-divider>
+                    <tr style="font-weight: 600;">
+                        <td>Total Amount: </td>
+                        <td>{{pwt.price + 50 | currency:"INR"}}</td>
+                    </tr>
+                    <mat-divider></mat-divider>
+                </ng-container>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <div style="float: left;margin-left: 15%;color:grey;font-size:20px;">
+                <th style="font-size: 25px">Payment</th>
+                <p>Cash on Delivery</p>
+            </div>
+        </div>
+    </div>    
+</div>

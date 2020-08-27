@@ -1,0 +1,78 @@
+<div class="main" style="padding-top: 5%;">
+  <div class="container">
+      <mat-card>
+        <table>
+          <tr>
+            <th>S.no</th>
+            <th>Customer Name</th>
+            <th>Item name/portrait</th>
+            <th>Action/Status</th>
+          </tr>
+          <mat-divider></mat-divider>
+          <tr *ngFor="let order of orders;let i=index">
+            <td>{{i+1}}</td>
+            <app-artist-view-order-sub [userid]="order.userid"> </app-artist-view-order-sub>
+           
+            <td>
+              <div *ngIf="order.paintingsid">
+                  <app-artist-view-order-paint-pwt-name [paintingsid]="order.paintingsid"></app-artist-view-order-paint-pwt-name>
+              </div>
+              <div *ngIf="order.pwtid">
+                <app-artist-view-order-paint-pwt-name [pwtid]="order.pwtid"></app-artist-view-order-paint-pwt-name>
+              </div>
+            </td>
+            <div *ngIf="order.status==='Ready to move' || order.status==='Ready to dispatch' || order.status==='Shipped';">
+              <td>
+              <form [formGroup]="formsStatus" (ngSubmit)="formStat(formsStatus,order.id)" name="form">
+                <select formControlName="status" name="status">
+                
+                  <option *ngIf="order.status==='Ready to move'" value="Ready to move" >Ready to move</option>
+                  <option *ngIf="order.status==='Ready to move'" value="Ready to dispatch" >Ready to dispatch</option>
+                  <option *ngIf="order.status==='Ready to move'" value="Shipped">Shipped</option>
+                  <option *ngIf="order.status==='Ready to move'" value="Delivered">Delivered</option>
+                
+                  
+                  <option *ngIf="order.status==='Ready to dispatch'" value="Ready to dispatch" >Ready to dispatch</option>
+                  <option *ngIf="order.status==='Ready to dispatch'" value="Shipped">Shipped</option>
+                  <option *ngIf="order.status==='Ready to dispatch'" value="Delivered">Delivered</option>
+                
+                  <option *ngIf="order.status==='Shipped'" value="Shipped">Shipped</option>
+                  <option *ngIf="order.status==='Shipped'" value="Delivered">Delivered</option>
+                
+                </select>
+                <input type="submit" id="s123" name="ss" value="update">
+              </form>
+            </td>
+            </div>
+            <div *ngIf="order.status==='Delivered'">
+              <td>Delivered: <button *ngIf="order.comment" class="btn btn-link" (click)="openDialog1(order.paintingsid, order.pwtid, order.userid,order.rating,order.comment)" >View review</button>
+              </td>
+            </div>
+            <div *ngIf="order.status==='Order Cancelled'">
+              <td>Order Cancelled</td>
+            </div>
+            <div *ngIf="order.status==='Artist Rejected'">
+              <td>Rejected</td>
+            </div>
+            <div *ngIf="order.status==='Getting ready' || order.status==='Artist Accepted'">
+              <td *ngIf="order.paintingsid" class="popup" (click)="myFunction(order.id)">Decide
+                <span class="popuptext" id="myPopup{{order.id}}">
+                  <button class="btn btn-primary" (click)="acceptOrReject(order.id,'Accept',order.paintingsid)">Accept</button>
+                  <button class="btn btn-danger" (click)="acceptOrReject(order.id,'Reject',order.paintingsid)">Reject</button>
+                </span>
+              </td>
+              <td *ngIf="order.pwtid" class="popup" (click)="myFunction(order.id)">Decide
+                <span class="popuptext" id="myPopup{{order.id}}">
+                  <button class="btn btn-primary" (click)="acceptOrRejectPwt(order.id,'Accept')">Accepts</button>
+                  <button class="btn btn-danger" (click)="acceptOrRejectPwt(order.id,'Reject')">Reject</button>
+                </span>
+              </td>
+            </div>
+
+            <mat-divider></mat-divider>
+          </tr>
+        </table>
+      </mat-card>
+  </div>
+</div>
+  

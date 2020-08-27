@@ -1,0 +1,35 @@
+<!---- start-bottom-grids---->
+<div class="bottom-grids">
+    <div class="bottom-top-grids">
+      <div class="wrap" style="width:90%">
+        <div class="bottom-top-grid">
+          <h4>GET HELP</h4>
+          <ul>
+            <li><a [routerLink]="['/feedback']" routerLinkActive="router-link-active" >Contact us | Feedback</a></li>
+            <li><a [routerLink]="['/about']" routerLinkActive="router-link-active" >ArtDeal.Inc</a></li>
+          
+          </ul>
+        </div>
+        <div class="bottom-top-grid" *ngIf="!showArtistBoard">
+          <h4>ORDERS</h4>
+          <ul>
+            <li><a [routerLink]="['/user/cart']" routerLinkActive="router-link-active" >My Orders</a></li>
+            <li><a [routerLink]="['/user/cart']" routerLinkActive="router-link-active" >Shipping and delivery</a></li>
+            
+          </ul>
+        </div>
+        <div class="bottom-top-grid last-bottom-top-grid" *ngIf="!isLoggedIn">
+          <h4>REGISTER</h4>
+          <p>Create one account to manage everything you do with ArtDeal.</p>
+
+          <a class="popup"  (click)="myFunction()">Learn more
+            <span class="popuptext" id="myPopup">
+              <a [routerLink]="['/artist/register']"   class="popup">Artist</a><mat-divider style="color: red;"></mat-divider>
+              <a [routerLink]="['/user/register']"   class="popup">User</a>
+            </span>
+          </a>
+        </div>
+        <div class="clear"> </div>
+      </div>
+    </div>
+  </div>

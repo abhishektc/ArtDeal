@@ -1,0 +1,12 @@
+<div style="margin: 2% 1%;">
+    <div style="margin: 2% 3%">
+        <mat-toolbar *ngIf="length <= 0" style="text-align: center;background-color: rgb(224, 67, 67);">Not Available</mat-toolbar>
+
+        <a [routerLink]="['/admin/artistProfileView', artist.id]" *ngFor="let artist of artists">
+            <mat-card style="margin: 1% 1%; float:left;width: 18%;" align="center">
+                <img src="../assets/images/ii.png" width="100%">
+                <p class="artistName">{{artist.fullname}}</p>
+            </mat-card>
+        </a>
+    </div>
+</div>

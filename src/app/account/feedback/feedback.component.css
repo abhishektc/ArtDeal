@@ -1,0 +1,24 @@
+.main {
+    min-height: 100%;
+    background-image: linear-gradient(to bottom, white, orange,yellow, violet); 
+}
+mat-card {
+    margin: 30px 150px;
+
+}
+@media screen and (max-width: 1300px) {
+    mat-card {
+        margin: 30px 70px;
+    }
+}
+@media screen and (max-width: 900px) {
+    mat-card {
+        margin: 20px 50px;
+    }
+}
+@media screen and (max-width: 600px) {
+    mat-card {
+        margin: 15px;
+    }
+    
+}

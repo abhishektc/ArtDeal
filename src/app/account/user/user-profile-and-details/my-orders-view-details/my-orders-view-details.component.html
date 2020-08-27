@@ -1,0 +1,84 @@
+<div class="main">
+    <div class="container" style="padding-top: 1%;">
+        <mat-card class="submain" style="padding: 1% 10%;">
+            <span>Order Id- {{orders.id}}</span>
+            <mat-divider></mat-divider>
+            <app-my-orders-view-paintings-info *ngIf="orders.paintingsid" [paintingsid]="orders.paintingsid"></app-my-orders-view-paintings-info>
+            <app-my-orders-view-paintings-info *ngIf="orders.pwtid" [pwtid]="orders.pwtid"></app-my-orders-view-paintings-info>
+
+            <mat-divider></mat-divider>
+            <div *ngIf="orders.status === 'Delivered';else elseblockOfCancelOrder" style="padding: 1.5%;text-align: center;">
+                <a *ngIf="orders.rating > 0" (click)="editReview()">
+                    <span style="font-size: 20px; color: blue;">Edit Reviews</span>
+                </a>
+                <a *ngIf="orders.rating === 0">
+                    <span style="font-size: 20px; color: blue;">Giew Reviews</span>
+                </a>
+                <div *ngIf="orders.rating === 0 || reviewsShow">
+                    <form [formGroup]="reviews" (ngSubmit)="reviewForm()" name="form">
+                        <fieldset class="rating" style="padding-left: 37%;">
+                            <input class="stars" name="rate" type="radio" id="star53" value="5" formControlName="rate" />
+                            <label class = "fa-star" for="star53" title="Awesome - 5 stars"></label>
+                                
+                                <input class="stars" name="rate" type="radio" id="star4half3"  value="4.5" formControlName="rate" />
+                                <label class="half" for="star4half3" title="Pretty good - 4.5 stars"></label>
+                            
+                            <input class="stars" name="rate" type="radio" id="star43" value="4" formControlName="rate" />
+                            <label class = "full" for="star43" title="Pretty good - 4 stars"></label>
+                                
+                                <input class="stars" name="rate" type="radio" id="star3half3"  value="3.5" formControlName="rate" />
+                                <label class="half" for="star3half3" title="Meh - 3.5 stars"></label>
+                            
+                            <input class="stars" name="rate" type="radio" id="star33"  value="3" formControlName="rate" />
+                            <label class = "full" for="star33" title="Meh - 3 stars"></label>
+                                
+                                <input class="stars" name="rate" type="radio" id="star2half3" value="2.5" formControlName="rate" />
+                                <label class="half" for="star2half3" title="Kinda bad - 2.5 stars"></label>
+                            
+                            <input class="stars" name="rate" type="radio" id="star23" value="2" formControlName="rate" />
+                            <label class = "full" for="star23" title="Kinda bad - 2 stars"></label>
+                                
+                                <input class="stars" name="rate" type="radio" id="star1half3" value="1.5" formControlName="rate" />
+                                <label class="half" for="star1half3" title="Meh - 1.5 stars"></label>
+                            
+                            <input class="stars" name="rate" type="radio" id="star13" value="1" formControlName="rate" />
+                            <label class = "full" for="star13" title="Sucks big time - 1 star"></label>
+                                
+                                <input class="stars" name="rate" type="radio" id="starhalf3" value="0.5" formControlName="rate" />
+                                <label class="half" for="starhalf3" title="Sucks big time - 0.5 stars"></label>
+                        </fieldset>
+                        <textarea rows="2" class="form-control" cols="40" name="comment" placeholder="Comment" style="font-size: 15px" formControlName="comment" ></textarea >
+                        <div *ngIf="reviews.controls.comment.errors && (reviews.controls.comment.touched || reviews.controls.comment.dirty)">
+                            <div style="color: red;" *ngIf="reviews.hasError('required','comment')">
+                                Comment is Required
+                            </div>
+                        </div>
+                        <br>
+                        <input type="submit" class="btn btn-danger" [disabled]="!reviews.valid"  value="Submit">
+                    </form>
+                </div>
+                <div *ngIf="!reviewsShow">
+                    <img *ngIf="orders.rating === 0.5" src="../assets/images/0.5.png" width="20%">
+                    <img *ngIf="orders.rating === 1" src="../assets/images/1.png" width="20%">
+                    <img *ngIf="orders.rating === 1.5" src="../assets/images/1.5.png" width="20%">
+                    <img *ngIf="orders.rating === 2" src="../assets/images/2.png" width="20%">
+                    <img *ngIf="orders.rating === 2.5" src="../assets/images/2.5.png" width="20%">
+                    <img *ngIf="orders.rating === 3" src="../assets/images/3.png" width="20%">
+                    <img *ngIf="orders.rating === 3.5" src="../assets/images/3.5.png" width="20%">
+                    <img *ngIf="orders.rating === 4" src="../assets/images/4.png" width="20%">
+                    <img *ngIf="orders.rating === 4.5" src="../assets/images/4.5.png" width="20%">
+                    <img *ngIf="orders.rating === 5" src="../assets/images/5.png" width="20%">
+                    <p>Comment:- {{orders.comment}}</p>
+                </div>
+            </div>
+            <ng-template  #elseblockOfCancelOrder>
+                <div *ngIf="orders.status!='Order Cancelled' && orders.status!='Artist Rejected'" align="center" style="padding: 1.5%;text-align: center;">
+                    <button class="btn btn-danger"  (click)="cancelOrder()" value="">CANCEL ORDER</button>
+                </div>
+            </ng-template>
+            <mat-divider></mat-divider>
+            <span style="font-size: 20px;">Status - {{orders.status}}</span>
+        </mat-card>        
+        
+    </div>
+</div>

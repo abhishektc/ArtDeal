@@ -1,0 +1,75 @@
+<div class="main" style="padding: 10px;">
+    <mat-card class="main">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h3>CONTACT US | GIEW FEEDBACK </h3>
+                <span style="color: red;">MESSAGE WILL SENT DIRECTLY TO THE WEBSITE ADMIN</span>
+                <div class="alert alert-success" *ngIf="isSuccessful">
+                    <strong>Feedback saved!</strong>
+                </div>
+
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form [formGroup]="feedbackForm" (ngSubmit)="feedbackForms()" name="form">
+                    <div class="form-group">
+                        <label class="form-control-label" for="fullname">Full Name</label>
+                        <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Your Full Name"
+                                formControlName="fullname">
+                        <div *ngIf="feedbackForm.controls.fullname.errors && (feedbackForm.controls.fullname.touched || feedbackForm.controls.fullname.dirty)">
+                            <div style="color: red;" *ngIf="feedbackForm.hasError('required','fullname')">
+                                Name is Required
+                            </div>
+                            <div style="color: red;" *ngIf="feedbackForm.hasError('pattern','fullname')">
+                                Name is Invalid format(Only characters)
+                            </div>
+                            <div style="color: red;" *ngIf="feedbackForm.hasError('minlength','fullname')">
+                                Name must be 3 characters long
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Your email"
+                                 formControlName="email">
+                        <div *ngIf="feedbackForm.controls.email.errors && (feedbackForm.controls.email.touched || feedbackForm.controls.email.dirty)">
+                            <div style="color: red;" *ngIf="feedbackForm.hasError('required','email')">
+                                Email is Required
+                            </div>
+                            <div style="color: red;" *ngIf="feedbackForm.hasError('pattern','email')">
+                                Email is Invalid
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="email">Subject</label>
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Your Subject"
+                                 formControlName="subject">
+                        <div *ngIf="feedbackForm.controls.subject.errors && (feedbackForm.controls.subject.touched || feedbackForm.controls.subject.dirty)">
+                            <div style="color: red;" *ngIf="feedbackForm.hasError('required','subject')">
+                                Subject is Required
+                            </div>
+                            <div style="color: red;" *ngIf="feedbackForm.hasError('minlength','subject')">
+                                Subject must be 6 character long
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="message">Message</label>
+                        <textarea class="form-control" style="height: 200px;"  id="message" name="message" placeholder="Your Message"
+                            formControlName="message"></textarea>
+                        <div *ngIf="feedbackForm.controls.message.errors && (feedbackForm.controls.message.touched || feedbackForm.controls.message.dirty)">
+                            <div style="color: red;" *ngIf="feedbackForm.hasError('required','message')">
+                                Message is Required
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-danger" [disabled]="!feedbackForm.valid">Submit</button>
+                    
+                </form>
+            </div>
+        </div>
+    </mat-card>
+</div>

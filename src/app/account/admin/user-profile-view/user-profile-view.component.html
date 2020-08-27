@@ -1,0 +1,27 @@
+<div class="main">
+    <div class="profileImg" style="background-image: url(../assets/images/userbg.jpg);">
+		<div class="profile" align="center">
+			<img src="../assets/images/ii.png">
+            <p>{{user.fullname}}</p>
+            <span>{{user.contact}}</span><br>
+            <span>{{user.email}}</span>
+        </div>
+
+    </div><br>
+    <mat-card align="center">
+        <h5>ADDRESS AND CITY</h5>
+        <mat-divider></mat-divider>
+        <span>{{user.address}}</span><br>
+        <span>{{user.city}}</span>
+    </mat-card><br>
+    <mat-card align="center">
+        <h5>TOTAL ORDERS</h5>
+        <mat-divider></mat-divider>
+        <span>{{totalOrder}}</span>
+    </mat-card><br>
+    <mat-card align="center">
+        <h5>ITEM IN CART</h5>
+        <mat-divider></mat-divider>
+        <span>{{itemCart}}</span>
+    </mat-card>
+</div>

@@ -1,0 +1,57 @@
+<div class="main" style="padding: 10px;">
+    <mat-card class="main1">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h3>User SignIn</h3>
+                <div class="alert alert-success" *ngIf="isLoggedInUser">
+                    <strong>Login Successfully</strong>
+                </div>
+
+                <div class="alert alert-danger" *ngIf="isLoginFailed">
+                    <strong>Login failed! Usename and Password wrong</strong>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form [formGroup]="userLoginForm" (ngSubmit)="userLogin()" name="form">
+                    <div class="form-group">
+                        <label class="form-control-label" for="email">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="username"
+                                formControlName="username">
+                        <div *ngIf="userLoginForm.controls.username.errors && (userLoginForm.controls.username.touched || userLoginForm.controls.username.dirty)">
+                            <div style="color: red;" *ngIf="userLoginForm.hasError('required','username')">
+                                User Name is Required
+                            </div>
+                            <div style="color: red;" *ngIf="userLoginForm.hasError('pattern','username')">
+                                User Name is Invalid format.
+                            </div>
+                            <div style="color: red;" *ngIf="userLoginForm.hasError('minlength','username')">
+                                User Name must be 3 characters long
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="password"
+                                formControlName="password">
+                        <div *ngIf="userLoginForm.controls.password.errors && (userLoginForm.controls.password.touched || userLoginForm.controls.password.dirty)">
+                            <div style="color: red;" *ngIf="userLoginForm.hasError('required','password')">
+                                Password is Required
+                            </div>
+                            <div style="color: red;" *ngIf="userLoginForm.hasError('minlength','password')">
+                                Password minimum length is 5
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" [disabled]="!userLoginForm.valid">SignIn</button>
+                </form><br>
+                <div class="alert alert-warning">
+                    <span>New User?</span>
+                    <a class="alert-link" routerLink="/user/register" > Register</a>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</div>
+  

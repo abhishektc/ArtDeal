@@ -1,0 +1,149 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ ) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ ) ? 'over' : 'over'"
+      >
+    <mat-toolbar style="background-color: #eb6a0e;font-weight: 900;font-family: cursive; ">ArtDeal</mat-toolbar>
+    <mat-nav-list>
+      <a (click)="drawer.toggle()" mat-list-item routerLink="home" routerLinkActive="router-link-active" >Home</a>
+      <mat-divider></mat-divider>
+
+      <a (click)="drawer.toggle()" mat-list-item routerLink="artistlist" *ngIf="!showAdminBoard && !showArtistBoard">Artist</a>
+      <mat-divider *ngIf="!showArtistBoard && !showAdminBoard"></mat-divider>
+
+      <a (click)="drawer.toggle()" mat-list-item routerLink="portraitArtist" *ngIf="!showArtistBoard && !showAdminBoard">Portrait Artist</a>
+      <mat-divider *ngIf="!showArtistBoard && !showAdminBoard"></mat-divider>
+
+      <a (click)="drawer.toggle()" mat-list-item routerLink="wallArtist" *ngIf="!showArtistBoard && !showAdminBoard">Wall Artist</a>
+      <mat-divider *ngIf="!showArtistBoard && !showAdminBoard"></mat-divider>
+
+      <button *ngIf="showUserBoard" style="border: none;background-color: white;"  mat-list-item [matMenuTriggerFor]="afterMenu3" >
+        Profile<mat-icon>arrow_drop_down</mat-icon></button>
+        <mat-menu #afterMenu3="matMenu" xPosition="after">
+            <a (click)="drawer.toggle()" mat-menu-item routerLink="user/cart"><i class="fa fa-shopping-cart" aria-hidden="true" title="Profile"></i> Cart</a>
+            <a (click)="drawer.toggle()" mat-menu-item routerLink="user/myOrders"><i class="fa fa-shopping-bag" aria-hidden="true" title="Profile"></i> My Orders</a>
+            <a (click)="drawer.toggle()" mat-menu-item routerLink="user/notification"><i class="fa fa-paragraph" aria-hidden="true" title="Profile"></i> Notification</a>
+
+          </mat-menu>
+      <mat-divider></mat-divider>
+
+      <!-- admin header -->
+      <a (click)="drawer.toggle()" mat-list-item routerLink="admin/newArtistApproval" *ngIf="showAdminBoard">New Artist</a>
+      <mat-divider *ngIf="showAdminBoard"></mat-divider>
+
+      <a (click)="drawer.toggle()" mat-list-item routerLink="admin/newPaintingsList" *ngIf="showAdminBoard">New Paintings</a>
+      <mat-divider *ngIf="showAdminBoard"></mat-divider>
+
+      <a (click)="drawer.toggle()" mat-list-item routerLink="admin/orderStatusView" *ngIf="showAdminBoard">Delivery Status</a>
+      <mat-divider *ngIf="showAdminBoard"></mat-divider>
+
+      <a (click)="drawer.toggle()" mat-list-item routerLink="admin/feedback" *ngIf="showAdminBoard">Feedback</a>
+      <mat-divider *ngIf="showAdminBoard"></mat-divider>
+
+      <!-- artist header -->
+      <a (click)="drawer.toggle()" mat-list-item routerLink="addNewPaintings" *ngIf="showArtistBoard">Add new paintings</a>
+      <mat-divider *ngIf="showArtistBoard"></mat-divider>
+
+      <a (click)="drawer.toggle()" mat-list-item routerLink="artist/viewOrder" *ngIf="showArtistBoard">View orders</a>
+      <mat-divider *ngIf="showArtistBoard"></mat-divider>
+
+      <a (click)="drawer.toggle()" mat-list-item routerLink="artist/profile" *ngIf="showArtistBoard">Edit profile/prices</a>
+      <mat-divider *ngIf="showArtistBoard"></mat-divider>
+
+      <a (click)="drawer.toggle()" mat-list-item routerLink="artist/request" *ngIf="showArtistBoard">Request</a>
+      <mat-divider *ngIf="showArtistBoard"></mat-divider>
+
+      <button style="border: none;background-color: white;" mat-list-item [matMenuTriggerFor]="afterMenu" *ngIf="!isLoggedIn">
+        Artist<mat-icon>arrow_drop_down</mat-icon></button>
+        <mat-menu #afterMenu="matMenu" xPosition="after">
+            <a (click)="drawer.toggle()" mat-menu-item routerLink="artist/register"><mat-icon>how_to_reg</mat-icon> Register</a>
+            <a (click)="drawer.toggle()" mat-menu-item routerLink="artist/login"><i class="fa fa-sign-in" aria-hidden="true" title="Profile"></i> SignIn</a>
+        </mat-menu>
+      <mat-divider></mat-divider>
+      <button style="border: none;background-color: white;" mat-list-item [matMenuTriggerFor]="afterMenuUser" *ngIf="!isLoggedIn">
+        User<mat-icon>arrow_drop_down</mat-icon></button>
+        <mat-menu #afterMenuUser="matMenu" xPosition="after">
+            <a (click)="drawer.toggle()" mat-menu-item routerLink="user/register"><mat-icon>how_to_reg</mat-icon>Register</a>   
+            <a (click)="drawer.toggle()" mat-menu-item routerLink="user/login"><i class="fa fa-sign-in" aria-hidden="true" title="Profile"></i> SignIn</a>
+        </mat-menu>
+
+      <a routerLink="" (click)="drawer.toggle()" mat-list-item *ngIf="isLoggedIn" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true" title="Profile"></i> Logout</a>
+
+      <mat-divider></mat-divider>
+    </mat-nav-list>
+
+    <span style="font-weight: 900;font-family: cursive;font-size: 80px;padding-left: 10px; "><span style="color:green;">A</span>rt<img src="../assets/images/artdeallogo.png" height="80px"><span style="color: green;">D</span>eal</span>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button class="menubutton"
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      
+      <span style="font-weight: 900;font-family: cursive; "><span style="color:green;">A</span>rt<img src="../assets/images/artdeallogo.png" height="40px"><span style="color: green;">D</span>eal</span>
+      <div class="menulist">
+        <a mat-button routerLink="home" >Home</a>
+        
+        <a mat-button routerLink="artistlist" *ngIf="!showArtistBoard && !showAdminBoard">Artist</a>
+
+        <a mat-button routerLink="portraitArtist" *ngIf="!showArtistBoard && !showAdminBoard">Portrait Artist</a>
+
+        <a mat-button routerLink="wallArtist" *ngIf="!showArtistBoard && !showAdminBoard">Wall Artist</a>
+
+        <button mat-button [matMenuTriggerFor]="afterMenu2" *ngIf="showUserBoard">
+          Profile <i class="fa fa-toggle-down" aria-hidden="true" title="Profile"></i></button>
+          <mat-menu #afterMenu2="matMenu" xPosition="after">
+              <a mat-menu-item routerLink="user/cart"><i class="fa fa-shopping-cart" aria-hidden="true" title="Profile"></i> Cart</a>
+              <a mat-menu-item routerLink="user/myOrders"><i class="fa fa-shopping-bag" aria-hidden="true" title="Profile"></i> My Orders</a>
+              <a mat-menu-item routerLink="user/notification"><i class="fa fa-paragraph" aria-hidden="true" title="Profile"></i> Notification</a>
+          </mat-menu>
+
+        <!-- admin header -->
+
+        <a mat-button routerLink="admin/newArtistApproval" *ngIf="showAdminBoard">New Artist</a>
+
+        <a mat-button routerLink="admin/newPaintingsList" *ngIf="showAdminBoard">New Paintings</a>
+
+        <a mat-button routerLink="admin/orderStatusView" *ngIf="showAdminBoard">Delivery Status</a>
+
+        <a mat-button routerLink="admin/feedback" *ngIf="showAdminBoard">Feedback</a>
+
+        <!-- artist header  -->
+
+        <a mat-button routerLink="addNewPaintings" *ngIf="showArtistBoard">Add new paintings</a>
+
+        <a mat-button routerLink="artist/viewOrder" *ngIf="showArtistBoard">View orders</a>
+
+        <a mat-button routerLink="artist/profile" *ngIf="showArtistBoard">Edit profile/prices</a>
+
+        <a mat-button routerLink="artist/request" *ngIf="showArtistBoard">Request</a>
+
+        
+        <button mat-button [matMenuTriggerFor]="afterMenu1" *ngIf="!isLoggedIn">
+          <i class="fa fa-pencil" aria-hidden="true" title="Profile"></i> Artist <i class="fa fa-toggle-down" aria-hidden="true" title="Profile"></i></button>
+          <mat-menu #afterMenu1="matMenu" xPosition="after">
+              <a mat-menu-item routerLink="artist/register"><i class="fa fa-sign-language" aria-hidden="true" title="Profile"></i> Register</a>
+              <a mat-menu-item routerLink="artist/login"><i class="fa fa-sign-in" aria-hidden="true" title="Profile"></i> SignIn</a>
+          </mat-menu>
+        
+        <button mat-button [matMenuTriggerFor]="afterMenuUser1" *ngIf="!isLoggedIn">
+          <i class="fa fa-user" aria-hidden="true" title="Profile"></i> User <i class="fa fa-toggle-down" aria-hidden="true" title="Profile"></i></button>
+          <mat-menu #afterMenuUser1="matMenu" xPosition="after">
+              <a mat-menu-item routerLink="user/register" ><i class="fa fa-sign-language" aria-hidden="true" title="Profile"></i> Register</a>
+              <a mat-menu-item routerLink="user/login" ><i class="fa fa-sign-in" aria-hidden="true" title="Profile"></i> SignIn</a>
+          </mat-menu>
+
+          <a routerLink="" *ngIf="isLoggedIn" mat-button (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true" title="Profile"></i> Logout</a>
+      </div>
+    </mat-toolbar>
+    
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

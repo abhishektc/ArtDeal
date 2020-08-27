@@ -1,0 +1,58 @@
+.main {
+    min-height: 100%;
+    background-image: linear-gradient(to bottom, white, orange,yellow, violet); 
+}
+.artistlistheader{
+    font-size:30px;
+    color:#8284d1;
+}
+.artistName{
+    font-size: 20px;
+}
+
+@media screen and (max-width: 1300px) {
+    .artistlistheader{
+        font-size:30px;
+    }
+    .artistName{
+        font-size: 17px;
+    }
+    img {
+        height: 130px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .artistlistheader{
+        font-size:22px;
+    }
+    .artistName{
+        font-size: 12px;
+    }
+    img {
+        height: 110px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .artistlistheader{
+        font-size:15px;
+    }
+    .artistName{
+        font-size: 10px;
+    }
+    img {
+        height: 90px;
+    }
+    
+}
+@media screen and (max-width: 400px) {
+    .artistlistheader{
+        font-size:10px;
+    }
+    .artistName{
+        font-size: 6px;
+    }
+    img {
+        height: 70px;
+    }
+    
+}

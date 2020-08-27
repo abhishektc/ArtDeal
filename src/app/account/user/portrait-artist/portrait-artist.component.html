@@ -1,0 +1,26 @@
+<div class="main">
+    <div style="margin: 0% 1%;padding: 2% 0%;">
+        <mat-card style="width: 64%;margin: 0% 18%;" align="center">
+            <p class="artistlistheader" align="center">EXPLORE GREAT PORTRAIT ARTISTS</p>
+        </mat-card>
+        <div style="margin: 2% 3%">
+            <a [routerLink]="['/artist/artistDetails', artist.id]" *ngFor="let artist of artists | async" >
+                <mat-card style="margin: 1% 1%; float:left;width: 18%;" align="center">
+                    <img class="newartist"  src="../assets/images/ii.png">
+                    <img *ngIf="artist.rankReview === 0" src="../assets/images/0.png" width="90%">
+                    <img *ngIf="artist.rankReview > 0 && artist.rankReview < 1" src="../assets/images/0.5.png" width="90%">
+                    <img *ngIf="artist.rankReview >= 1 && artist.rankReview < 1.5" src="../assets/images/1.png" width="90%">
+                    <img *ngIf="artist.rankReview >= 1.5 && artist.rankReview < 2" src="../assets/images/1.5.png" width="90%">
+                    <img *ngIf="artist.rankReview >= 2 && artist.rankReview < 2.5" src="../assets/images/2.png" width="90%">
+                    <img *ngIf="artist.rankReview >= 2.5 && artist.rankReview < 3" src="../assets/images/2.5.png" width="90%">
+                    <img *ngIf="artist.rankReview >= 3 && artist.rankReview < 3.5" src="../assets/images/3.png" width="90%">
+                    <img *ngIf="artist.rankReview >= 3.5 && artist.rankReview < 4" src="../assets/images/3.5.png" width="90%">
+                    <img *ngIf="artist.rankReview >= 4 && artist.rankReview < 4.5" src="../assets/images/4.png" width="90%">
+                    <img *ngIf="artist.rankReview >= 4.5 && artist.rankReview < 5" src="../assets/images/4.5.png" width="90%">
+                    <img *ngIf="artist.rankReview === 5" src="../assets/images/5.png" width="90%">
+                    <p class="artistName">{{artist.fullname}}</p>
+                </mat-card>
+            </a>    
+        </div>
+    </div>
+</div>

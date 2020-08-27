@@ -1,0 +1,1022 @@
+.main{
+    min-height: 100%;
+    padding: 2% 5% 2% 5%;
+    background-image: linear-gradient(to bottom, white, orange,yellow, green, violet); 
+}
+.profileImg img{
+    width: 100%;
+}
+.profile {
+    position: absolute;
+    top:140px;
+    left:694px
+}
+.profile img {
+    width: 110px;
+    height: 150px;
+    border: 5px solid white;
+    border-radius: 100px
+}
+.profile p {
+    color:#FFFFFF;
+    font-size:22px
+}
+ul {
+    padding: 0%;
+}
+li {
+    list-style-type: none;
+}
+.profileRank img {
+    width:100px;
+    height:19px;
+
+}
+.profileExp{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 200px;
+    height: 50px;
+    position:absolute;
+    top:360px;
+    left:135px;
+    padding-top: 0%;
+    text-align: center;
+}
+.profileSold{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 200px;
+    height: 50px;
+    box-shadow: none;
+    position:absolute;
+    top:360px;
+    left:397px;
+    padding-top: 0%;
+    text-align: center;
+}
+.profileRank{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 200px;
+    height: 50px;
+    box-shadow: none;
+    position:absolute;
+    top:360px;
+    left:654px;
+    padding-top: 0%;
+    text-align: center;
+}
+.profileWebsite{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 200px;
+    height: 50px;
+    box-shadow: none;
+    position:absolute;
+    top:360px;
+    left:912px;
+    padding-top: 0%;
+    text-align: center;
+}
+.profileAccStatus{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 200px;
+    height: 50px;
+    box-shadow: none;
+    position:absolute;
+    top:360px;
+    left:1172px;
+    padding-top: 0%;
+    text-align: center;
+}
+.aboutme {
+    margin: 2% 0%;
+    text-align: center;
+    /* background-image: linear-gradient(to right, red, orange,yellow, green, blue, indigo, violet); */
+    /* background-image: repeating-radial-gradient(red, orange 10%,yellow 10%, green 10%, indigo 10%, violet 10%); */
+}
+.aboutme span {
+    color: black;
+    font-weight: 300;
+    font-size: 32px;
+}
+.aboutme p {
+    font-size: 20px;
+}
+/*gallery styles */
+.available {
+    text-align: center;
+}
+.available .av {
+    color: grey;
+    font-weight: 300;
+    font-size: 32px;
+    text-align: center;
+}
+.disable{
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+.row > .column {
+    padding: 0 8px;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Create four equal columns that floats next to eachother */
+  .column {
+    float: left;
+    width: 25%;
+  }
+  .column1 {
+    float: left;
+    width: 50%;
+  }
+  
+  
+  img.hover-shadow {
+    transition: 0.3s
+  }
+  a.hover-shadow {
+    transition: 0.3s
+  }
+  .hover-shadow:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 10px rgba(0, 0, 0, 0.19)
+  }
+  .btn{
+      background-color: black;
+      border:none;
+      color: white;
+      padding: 15px, 32px;
+      text-align: center;
+      display: inline-block;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.5s;
+  }
+  .btn span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+  }
+  .btn span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+  }
+  .btn:hover span{
+      padding-right: 25px;
+  }
+  .btn:hover span:after{
+      opacity: 1;
+      right: 0;
+  }
+  .gallery {
+    margin: 2% 0%;
+    padding-left: 9%;
+    padding-right: 9%;
+    text-align: center;
+  }
+  .gallery .gaName {
+    font-size: 32px;
+    color: grey;
+ }
+  .column img {
+    width:250px;
+    height:180px;
+  }
+
+@media screen and (max-width: 1400px) {
+    .profileImg img{
+        width: 100%;
+        height: 355px;
+    }
+    .profile {
+        position: absolute;
+        top:130px;
+        left:610px
+    }
+    .profile img {
+        width: 110px;
+        height: 150px;
+        border: 5px solid white;
+        border-radius: 100px
+    }
+    .profile p {
+        color:#FFFFFF;
+        font-size:22px
+    }
+    ul {
+        padding: 0%;
+    }
+    li {
+        list-style-type: none;
+    }
+    .profileRank img {
+        width:100px;
+        height:19px;
+    
+    }
+    .profileExp{
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        width: 200px;
+        height: 50px;
+        position:absolute;
+        top:350px;
+        left:105px;
+        padding-top: 0%;
+        text-align: center;
+    }
+    .profileSold{
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        width: 200px;
+        height: 50px;
+        box-shadow: none;
+        position:absolute;
+        top:350px;
+        left:332px;
+        padding-top: 0%;
+        text-align: center;
+    }
+    .profileRank{
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        width: 200px;
+        height: 50px;
+        box-shadow: none;
+        position:absolute;
+        top:350px;
+        left:552px;
+        padding-top: 0%;
+        text-align: center;
+    }
+    .profileWebsite{
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        width: 200px;
+        height: 50px;
+        box-shadow: none;
+        position:absolute;
+        top:350px;
+        left:770px;
+        padding-top: 0%;
+        text-align: center;
+    }
+    .profileAccStatus{
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        width: 200px;
+        height: 50px;
+        box-shadow: none;
+        position:absolute;
+        top:350px;
+        left:990px;
+        padding-top: 0%;
+        text-align: center;
+    }
+    .aboutme {
+        margin: 2% 0%;
+        text-align: center;
+        /* background-image: linear-gradient(to right, red, orange,yellow, green, blue, indigo, violet); */
+        /* background-image: repeating-radial-gradient(red, orange 10%,yellow 10%, green 10%, indigo 10%, violet 10%); */
+    }
+    .aboutme span {
+        color: black;
+        font-weight: 300;
+        font-size: 30px;
+    }
+    .aboutme p {
+        font-size: 20px;
+    }
+    /*gallery styles */
+    .available {
+        text-align: center;
+    }
+    .available .av {
+        color: grey;
+        font-weight: 300;
+        font-size: 30px;
+        text-align: center;
+    }
+    .row > .column {
+        padding: 0 8px;
+      }
+      
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      
+      /* Create four equal columns that floats next to eachother */
+      .column {
+        float: left;
+        width: 25%;
+      }
+      .column1 {
+        float: left;
+        width: 50%;
+      }
+      
+      
+      img.hover-shadow {
+        transition: 0.3s
+      }
+      a.hover-shadow {
+        transition: 0.3s
+      }
+      .hover-shadow:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 10px rgba(0, 0, 0, 0.19)
+      }
+      .btn{
+          background-color: black;
+          border:none;
+          color: white;
+          padding: 15px, 32px;
+          text-align: center;
+          display: inline-block;
+          font-size: 20px;
+          cursor: pointer;
+          transition: all 0.5s;
+      }
+      .btn span {
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          transition: 0.5s;
+      }
+      .btn span:after {
+          content: '\00bb';
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          right: -20px;
+          transition: 0.5s;
+      }
+      .btn:hover span{
+          padding-right: 25px;
+      }
+      .btn:hover span:after{
+          opacity: 1;
+          right: 0;
+      }
+      .gallery {
+        margin: 2% 0%;
+        padding-left: 9%;
+        padding-right: 9%;
+        text-align: center;
+      }
+      .gallery .gaName {
+        font-size: 30px;
+        color: grey;
+     }
+      .column img {
+        width:230px;
+        height:180px;
+      }
+}
+
+@media screen and (max-width: 1200px) {
+    .profileImg img{
+        width: 100%;
+        height: 370px;
+    }
+    .profile {
+        position: absolute;
+        top:105px;
+        left:380px;
+    }
+    .profile img {
+        width: 100px;
+        height: 130px;
+        border: 5px solid white;
+        border-radius: 100px;
+    }
+    .profile p {
+        color:#FFFFFF;
+        font-size:19px;
+    }
+    ul {
+        padding: 0%;
+    }
+    li {
+        list-style-type: none;
+        font-size: 18px;
+    }
+    .profileRank img {
+        width:110px;
+        height:19px;
+    
+    }
+    .profileExp{
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        width: 170px;
+        height: 60px;
+        position:absolute;
+        top:360px;
+        left:130px;
+        padding-top: 0%;
+        text-align: center;
+    }
+    .profileSold{
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        width: 180px;
+        height: 60px;
+        position:absolute;
+        top:275px;
+        left:220px;
+        padding-top: 0%;
+        text-align: center;
+    }
+    .profileRank{
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        width: 170px;
+        height: 60px;
+        box-shadow: none;
+        position:absolute;
+        top:360px;
+        left:350px;
+        padding-top: 0%;
+        text-align: center;
+    }
+    .profileWebsite{
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        width: 180px;
+        height: 60px;
+        position:absolute;
+        top:275px;
+        left:465px;
+        padding-top: 0%;
+        text-align: center;
+    }
+    .profileAccStatus{
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        width: 170px;
+        height: 60px;
+        box-shadow: none;
+        position:absolute;
+        top:360px;
+        left:570px;
+        padding-top: 0%;
+        text-align: center;
+    }
+    .aboutme {
+        margin: 2% 0%;
+        text-align: center;
+        /* background-image: linear-gradient(to right, red, orange,yellow, green, blue, indigo, violet); */
+        /* background-image: repeating-radial-gradient(red, orange 10%,yellow 10%, green 10%, indigo 10%, violet 10%); */
+    }
+    .aboutme span {
+        color: black;
+        font-weight: 300;
+        font-size: 25px;
+    }
+    .aboutme p {
+        font-size: 20px;
+    }
+    /*gallery styles */
+    .available {
+        text-align: center;
+    }
+    .available .av {
+        color: grey;
+        font-weight: 300;
+        font-size: 25px;
+    }
+    .available p {
+        font-size: 20px;
+    }
+    .row > .column {
+        padding: 0 8px;
+      }
+      
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      
+      /* Create four equal columns that floats next to eachother */
+      .column {
+        float: left;
+        width: 33.3%;
+      }
+      .column1 {
+        float: left;
+        width: 50%;
+      }
+      
+      
+      img.hover-shadow {
+        transition: 0.3s
+      }
+      a.hover-shadow {
+        transition: 0.3s
+      }
+      .hover-shadow:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 10px rgba(0, 0, 0, 0.19)
+      }
+      .btn{
+          background-color: black;
+          border:none;
+          color: white;
+          padding: 13px, 7px;
+          text-align: center;
+          display: inline-block;
+          font-size: 20px;
+          cursor: pointer;
+          transition: all 0.4s;
+      }
+      .btn span {
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          transition: 0.3s;
+      }
+      .btn span:after {
+          content: '\00bb';
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          right: -15px;
+          transition: 0.4s;
+      }
+      .btn:hover span{
+          padding-right: 20px;
+      }
+      .btn:hover span:after{
+          opacity: 1;
+          right: 0;
+      }
+      .gallery {
+        text-align: center;
+      }
+      .gallery .gaName {
+         font-size: 25px;
+      }
+      .column span {
+          font-size: 20px;
+      }
+      .column img {
+        width:193px;
+        height:155px;
+      }
+}
+
+@media screen and (max-width: 700px) {
+    .profileImg img{
+        width: 100%;
+        height: 295px;
+    }
+    .profile {
+        position: absolute;
+        top:100px;
+        left:255px;
+    }
+    .profile img {
+        width: 80px;
+        height: 105px;
+        border: 5px solid white;
+        border-radius: 100px;
+    }
+    .profile p {
+        color:#FFFFFF;
+        font-size:15px;
+    }
+    ul {
+        padding: 0%;
+    }
+    li {
+        list-style-type: none;
+        font-size: 14px;
+    }
+    .profileRank img {
+        width:90px;
+        height:17px;
+    
+    }
+    .profileExp{
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        width: 130px;
+        height: 50px;
+        position:absolute;
+        top:300px;
+        left:70px;
+        padding-top: 0%;
+        text-align: center;
+    }
+    .profileSold{
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        width: 150px;
+        height: 50px;
+        position:absolute;
+        top:235px;
+        left:130px;
+        padding-top: 0%;
+        text-align: center;
+    }
+    .profileRank{
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        width: 130px;
+        height: 50px;
+        box-shadow: none;
+        position:absolute;
+        top:300px;
+        left:230px;
+        padding-top: 0%;
+        text-align: center;
+    }
+    .profileWebsite{
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        width: 150px;
+        height: 50px;
+        position:absolute;
+        top:235px;
+        left:315px;
+        padding-top: 0%;
+        text-align: center;
+    }
+    .profileAccStatus{
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        width: 140px;
+        height: 50px;
+        box-shadow: none;
+        position:absolute;
+        top:300px;
+        left:390px;
+        padding-top: 0%;
+        text-align: center;
+    }
+    .aboutme {
+        margin: 2% 0%;
+        text-align: center;
+        /* background-image: linear-gradient(to right, red, orange,yellow, green, blue, indigo, violet); */
+        /* background-image: repeating-radial-gradient(red, orange 10%,yellow 10%, green 10%, indigo 10%, violet 10%); */
+    }
+    .aboutme span {
+        color: black;
+        font-weight: 300;
+        font-size: 20px;
+    }
+    .aboutme p {
+        font-size: 15px;
+    }
+    /*gallery styles */
+    .available {
+        text-align: center;
+    }
+    .available .av {
+        color: grey;
+        font-weight: 300;
+        font-size: 20px;
+    }
+    .available p {
+        font-size: 16px;
+    }
+    .row > .column {
+        padding: 0 8px;
+      }
+      
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      
+      /* Create four equal columns that floats next to eachother */
+      .column {
+        float: left;
+        width: 33.3%;
+      }
+      .column1 {
+        float: left;
+        width: 50%;
+      }
+      
+      
+      img.hover-shadow {
+        transition: 0.3s
+      }
+      a.hover-shadow {
+        transition: 0.3s
+      }
+      .hover-shadow:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 10px rgba(0, 0, 0, 0.19)
+      }
+      .btn{
+          background-color: black;
+          border:none;
+          color: white;
+          padding: 11px, 5px;
+          text-align: center;
+          display: inline-block;
+          font-size: 15px;
+          cursor: pointer;
+          transition: all 0.3s;
+      }
+      .btn span {
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          transition: 0.3s;
+      }
+      .btn span:after {
+          content: '\00bb';
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          right: -15px;
+          transition: 0.3s;
+      }
+      .btn:hover span{
+          padding-right: 15px;
+      }
+      .btn:hover span:after{
+          opacity: 1;
+          right: 0;
+      }
+      .gallery {
+        text-align: center;
+      }
+      .gallery .gaName {
+         font-size: 20px;
+      }
+      .column span {
+          font-size: 15px;
+      }
+      .column img {
+        width:140px;
+        height:110px;
+      }
+    
+}
+
+@media screen and (max-width: 550px) {
+    .profileImg img{
+        width: 100%;
+        height: 215px;
+    }
+    .profile {
+        position: absolute;
+        top:80px;
+        left:150px;
+    }
+    .profile img {
+        width: 50px;
+        height: 75px;
+        border: 5px solid white;
+        border-radius: 100px
+    }
+    .profile p {
+        color:#FFFFFF;
+        font-size:10px;
+    }
+    ul {
+        padding: 0%;
+    }
+    li {
+        list-style-type: none;
+        font-size: 10px;
+    }
+    .profileRank img {
+        width:50px;
+        height:15px;
+    
+    }
+    .profileExp{
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+        width: 80px;
+        height: 35px;
+        position:absolute;
+        top:220px;
+        left:35px;
+        padding-top: 0%;
+        text-align: center;
+    }
+    .profileSold{
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+        width: 120px;
+        height: 35px;
+        position:absolute;
+        top:175px;
+        left:50px;
+        padding-top: 0%;
+        text-align: center;
+    }
+    .profileRank{
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+        width: 80px;
+        height: 35px;
+        box-shadow: none;
+        position:absolute;
+        top:220px;
+        left:136px;
+        padding-top: 0%;
+        text-align: center;
+    }
+    .profileWebsite{
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+        width: 120px;
+        height: 35px;
+        position:absolute;
+        top:175px;
+        left:185px;
+        padding-top: 0%;
+        text-align: center;
+    }
+    .profileAccStatus{
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+        width: 80px;
+        height: 35px;
+        box-shadow: none;
+        position:absolute;
+        top:220px;
+        left:237px;
+        padding-top: 0%;
+        text-align: center;
+    }
+    .aboutme {
+        margin: 2% 0%;
+        text-align: center;
+        /* background-image: linear-gradient(to right, red, orange,yellow, green, blue, indigo, violet); */
+        /* background-image: repeating-radial-gradient(red, orange 10%,yellow 10%, green 10%, indigo 10%, violet 10%); */
+    }
+    .aboutme span {
+        color: black;
+        font-weight: 300;
+        font-size: 15px;
+    }
+    .aboutme p {
+        font-size: 10px;
+    }
+    /*gallery styles */
+    .available {
+        text-align: center;
+    }
+    .available .av {
+        color: grey;
+        font-weight: 300;
+        font-size: 15px;
+    }
+    .available p {
+        font-size: 12px;
+    }
+    .row > .column {
+        padding: 0 8px;
+      }
+      
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      
+      /* Create four equal columns that floats next to eachother */
+      .column {
+        float: left;
+        width: 33.3%;
+      }
+      .column1 {
+        float: left;
+        width: 50%;
+      }
+      
+      
+      img.hover-shadow {
+        transition: 0.3s
+      }
+      a.hover-shadow {
+        transition: 0.3s
+      }
+      .hover-shadow:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 10px rgba(0, 0, 0, 0.19)
+      }
+      .btn{
+          background-color: black;
+          border:none;
+          color: white;
+          padding: 9px, 5px;
+          text-align: center;
+          display: inline-block;
+          font-size: 9px;
+          cursor: pointer;
+          transition: all 0.3s;
+      }
+      .btn span {
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          transition: 0.3s;
+      }
+      .btn span:after {
+          content: '\00bb';
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          right: -10px;
+          transition: 0.3s;
+      }
+      .btn:hover span{
+          padding-right: 15px;
+      }
+      .btn:hover span:after{
+          opacity: 1;
+          right: 0;
+      }
+      .gallery {
+        text-align: center;
+        text-align: center;
+      }
+      .gallery .gaName {
+         font-size: 20px;
+      }
+      .column span {
+        font-size: 10px;
+      }
+      .column img {
+        width:80px;
+        height:65px;
+      }
+    
+}
+
+
+
+

@@ -1,0 +1,24 @@
+<div class="main" style="padding: 2% 0%;">
+    <div class="container">
+        <mat-card >
+        <mat-tab-group mat-align-tabs="center" animationDuration="1000ms">
+            
+                <mat-tab  matBadge="8" matBadgePosition="after" matBadgeColor="primary" label="FOR PORTRAIT">
+                    <ul>
+                        <li style="color: grey;" *ngFor="let portrait of portraits">
+                            You have portrait request from <app-user-name [userid]="portrait.userid"></app-user-name>&nbsp;<a [routerLink]="['/artist/portraitView', portrait.id]" routerLinkActive="router-link-active" >View</a>
+                        </li>
+                    </ul>
+                </mat-tab>
+                <mat-tab  matBadge="8" matBadgePosition="after" matBadgeColor="accent" label="TO PAINT ON WALL'S">
+                    <ul>
+                        <li style="color: grey;" *ngFor="let wallpaint of wallPaints">
+                            You have wallpainting request from <app-user-name [userid]="wallpaint.userid"></app-user-name> &nbsp;<a [routerLink]="['/artist/wallPaintView', wallpaint.id]" >View</a>
+                        </li>
+                    </ul>
+                </mat-tab>
+
+        </mat-tab-group>
+    </mat-card>
+    </div>
+</div>

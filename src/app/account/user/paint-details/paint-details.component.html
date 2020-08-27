@@ -1,0 +1,64 @@
+<div class="main">
+    <div style="padding: 2% 3%;">
+        <div style="float: left; width: 50%;padding: 1%;">
+            <mat-card style="margin-bottom: 1%;text-align: center;">TITLE:  {{paintings.title | uppercase}}</mat-card>
+        <div style="width: 100%;" id="carouselExampleIndicators" class="carousel">
+                <div class="carousel-indicators" style="top: 423px; margin: 0%;">
+                <div class="column">
+                    <img class="cursor w-100" [ngClass]="classActiveSlide1" (click)=changeClass1(); src="data:image/jpeg;base64,{{paintings.picByteFile1}}" alt="First slide" style="width:225px;height:150px;" data-target="#carouselExampleIndicators" data-slide-to="0">&nbsp;
+                </div>
+                <div class="column">
+                    <img class="cursor w-100" [ngClass]="classActiveSlide2" (click)=changeClass2(); src="data:image/jpeg;base64,{{paintings.picByteFile2}}" alt="First slide" style="width:225px;height:150px" data-target="#carouselExampleIndicators" data-slide-to="1">&nbsp;
+                </div>
+                <div class="column">
+                    <img class="cursor w-100" [ngClass]="classActiveSlide3" (click)=changeClass3(); src="data:image/jpeg;base64,{{paintings.picByteFile3}}" alt="First slide" style="width:225px;height:150px" data-target="#carouselExampleIndicators" data-slide-to="2">
+                </div>
+                </div>
+                <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100"  src="data:image/jpeg;base64,{{paintings.picByteFile1}}" alt="First slide" height="420px">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100"  src="data:image/jpeg;base64,{{paintings.picByteFile2}}" alt="Second slide" height="420px">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100"  src="data:image/jpeg;base64,{{paintings.picByteFile3}}" alt="Second slide" height="420px">
+                </div>
+                </div>
+        </div>
+        </div>
+        <mat-card style="float: left; width: 50%;margin-top: 1%;height: 634px;">
+            <p align="right" style="color: grey"><i class="fa fa-eye" aria-hidden="true" title="Profile"></i><br><span style="margin-top: 0px;">{{paintings.countView}}</span></p>
+            <div align="center">
+                <a align="center"><img class="newartist" src="../assets/images/ii.png"></a>
+                <app-artist-info [paintings]="paintings"></app-artist-info>
+            </div>
+            <br>
+            <div align="center"> 
+                <p style="font-size:18px;color:#808080">TYPE OF PAINTINGS:  {{paintings.type  | uppercase}}</p>
+                <p style="font-size:18px;color:#808080">DATE OF PAINTINGS: {{paintings.date  | uppercase}}</p>
+                <p *ngIf="paintings.status === 'Approved';else elseblockstatus" style="font-size:18px;color:#808080">STATUS: STOCK</p>
+                <ng-template #elseblockstatus>
+                    <p style="font-size:18px;color:#808080">STATUS: {{paintings.status | uppercase}}</p>
+                </ng-template>
+                <p style="font-size:18px;color:#808080">PRICE: {{paintings.price | currency:"INR"}}</p>
+                <div *ngIf="paintings.status === 'Approved'">
+                    <input type="submit" id="s123" *ngIf="!showUserBoard" (click)="requestLogin()" style="float: left;" value="BUY NOW" />
+                    <button type="submit" id="s123" *ngIf="showUserBoard" (click)="addToCart($event)"  style="float: left;" value="buyNow" >BUY NOW</button>
+                    <input type="submit" id="s123" *ngIf="!showUserBoard" (click)="requestLogin()" style="float: right;" value="ADD TO CART" />
+                    <button type="submit" id="s123" *ngIf="showUserBoard" (click)="addToCart($event)" style="float: right;" value="addToCart" >ADD TO CART</button>
+                </div>
+            </div>
+        </mat-card>
+        <div style="margin: 1%;">
+            <p align="center">---------------------------------</p>
+            <mat-expansion-panel align="center">
+                <mat-expansion-panel-header >
+                    <mat-panel-title style="font-size: 25px;">MORE INFORMATION</mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-toolbar style="color: red;">Paintings Info.</mat-toolbar>
+                <mat-toolbar>Description: {{paintings.description}}</mat-toolbar>
+            </mat-expansion-panel>
+        </div>
+    </div>
+</div>

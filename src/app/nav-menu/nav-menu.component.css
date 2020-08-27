@@ -1,0 +1,49 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+.mat-toolbar{
+  background-color: #eb6a0e;
+}
+.menulist{
+  padding-left: 50px;
+}
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.mat-toolbar .menubutton{
+  display: none;
+}
+.mat-divider{
+  background-color: #eb6a0e;
+}
+a{
+  text-decoration: none;
+}
+
+
+/* .mat-nav-list ul li{
+  margin: 0;
+  list-style-type: none;
+} */
+
+
+@media screen and (max-width: 770px) {
+  .menulist{
+    display: none;
+  }
+  .mat-toolbar .menubutton{
+    display: block;
+  }
+}
+
+

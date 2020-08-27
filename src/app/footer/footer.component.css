@@ -1,0 +1,90 @@
+
+.bottom-grids{
+    margin-top:2em;
+    align-items: center;
+    background-color: orange;
+  }
+  .bottom-top-grids{
+      padding: 2em 5%;
+  }
+  .bottom-top-grid{
+      width: 31.1%;
+      margin-right: 2%;
+      float: left;
+      border-right: 1px solid #E2E2E2;
+  }
+  .bottom-top-grid p{
+      color: #08080B;
+      display: block;
+      font-size: 0.8em;
+      padding: 0 0 0.5em 0;
+  }
+  .last-bottom-top-grid,.last-bottom-bottom-grid{
+      border:none;
+  }
+  .bottom-top-grid h4{
+      color: #08080B;
+      font-weight: 700;
+      font-size: 1.2em;
+    padding-bottom: 0.5em;
+  }
+  .bottom-top-grid ul li a{
+      color: #08080B;
+      padding: 0.1em 0;
+      display: block;
+      font-size: 0.8em;
+  }
+  .bottom-top-grid ul li{
+  
+    list-style-type: none;
+  }
+  .bottom-top-grid ul{
+    padding: 0%;
+    margin: 0%;
+  }
+  
+  .learn-more:hover{
+      color: #08080B;
+  }
+  
+  .popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color:#E45D5D;
+      padding: 0.1em 0;
+      display: block;
+      font-size: 0.8em;
+      transition:0.5s all;
+  
+  }
+  
+  /* The actual popup */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+    font-size: 20px;
+  }
+  
+  /* Toggle this class - hide and show the popup */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  
+  

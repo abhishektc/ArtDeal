@@ -1,0 +1,76 @@
+.main {
+    min-height: 120%;
+    background-image: linear-gradient(to bottom, white, orange,yellow, violet); 
+}
+.artistlistheader{
+    font-size:30px;
+    color:#8284d1;
+}
+.artistName{
+    font-size: 20px;
+}
+.newartist{
+	border: 5px solid rgb(180, 209, 12);
+    border-radius: 95px;
+    height: 200px;
+    width: 200px;
+}
+
+@media screen and (max-width: 1300px) {
+    .artistlistheader{
+        font-size:30px;
+    }
+    .artistName{
+        font-size: 17px;
+    }
+    .newartist{
+        border: 5px solid rgb(180, 209, 12);
+        border-radius: 95px;
+        height: 150px;
+        width: 150px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .artistlistheader{
+        font-size:22px;
+    }
+    .artistName{
+        font-size: 12px;
+    }
+    .newartist{
+        border: 4px solid rgb(180, 209, 12);
+        border-radius: 95px;
+        height: 90px;
+        width: 90px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .artistlistheader{
+        font-size:15px;
+    }
+    .artistName{
+        font-size: 10px;
+    }
+    .newartist{
+        border: 2px solid rgb(180, 209, 12);
+        border-radius: 95px;
+        height: 60px;
+        width: 60px;
+    }
+    
+}
+@media screen and (max-width: 400px) {
+    .artistlistheader{
+        font-size:10px;
+    }
+    .artistName{
+        font-size: 6px;
+    }
+    .newartist{
+        border: 2px solid rgb(180, 209, 12);
+        border-radius: 95px;
+        height: 40px;
+        width: 40px;
+    }
+    
+}

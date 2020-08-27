@@ -1,0 +1,120 @@
+<div style="padding: 10px;" class="main">
+    <mat-card class="main">
+      <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h3>Add a new painting to your gallery</h3>
+        
+                <!-- <div class="alert alert-success" *ngIf="isSuccessful">
+                    <strong>Paintings Submitted Successfully </strong> Please Wait for a Admin Confirmation.
+                </div>
+    
+                <div class="alert alert-danger" *ngIf="isFailed">
+                    <strong>{{errorMessage}}</strong>
+                    <strong *ngIf="errorMessage == null">Registration Failed!</strong>
+                </div> -->
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form [formGroup]="newPaintingForm" name="form">
+                    <div class="form-group">
+                        <label class="form-control-label" for="username">Title of the painting</label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="title"
+                                formControlName="title">
+                        <div *ngIf="newPaintingForm.controls.title.errors && (newPaintingForm.controls.title.touched || newPaintingForm.controls.title.dirty)">
+                            <div style="color: red;" *ngIf="newPaintingForm.hasError('required','title')">
+                                Title is Required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-control-label" for="fullname">Date of the painting</label>
+                        <input type="date" class="form-control" id="date" (change)="caldob($event)" name="date" placeholder="date"
+                                formControlName="date">
+                        <div *ngIf="newPaintingForm.controls.date.errors && (newPaintingForm.controls.date.touched || newPaintingForm.controls.date.dirty)">
+                            <div style="color: red;" *ngIf="newPaintingForm.hasError('required','date')">
+                                Date is Required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-control-label" for="email">Type of painting</label>
+                        <input type="text" class="form-control" id="type" name="type" placeholder="type"
+                               formControlName="type">
+                        <div *ngIf="newPaintingForm.controls.type.errors && (newPaintingForm.controls.type.touched || newPaintingForm.controls.type.dirty)">
+                            <div style="color: red;" *ngIf="newPaintingForm.hasError('required','type')">
+                                Type is Required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-control-label" for="email">Price</label>
+                        <input type="text" class="form-control" id="type" name="price" placeholder="price"
+                               formControlName="price">
+                        <div *ngIf="newPaintingForm.controls.price.errors && (newPaintingForm.controls.price.touched || newPaintingForm.controls.price.dirty)">
+                            <div style="color: red;" *ngIf="newPaintingForm.hasError('required','price')">
+                                Price is Required
+                            </div>
+                            <div style="color: red;" *ngIf="newPaintingForm.hasError('pattern','price')">
+                                Only Number
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-control-label" for="firstImage">Upload the first image of painting</label>
+                        <div class="custom-file">
+                            <input type="file" accept="image/*" (change)="onSelectFile1($event)" class="form-control" formControlName="firstImage">
+                        </div>
+                        <div *ngIf="newPaintingForm.controls.firstImage.errors && (newPaintingForm.controls.firstImage.touched || newPaintingForm.controls.firstImage.dirty)">
+                            <div style="color: red;" *ngIf="newPaintingForm.hasError('required','firstImage')">
+                                First image of painting is Required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="secondImage">Upload the second image of painting</label>
+                        <div class="custom-file">
+                            <input type="file" accept="image/*" (change)="onSelectFile2($event)" class="form-control" formControlName="secondImage">
+                        </div>
+                        <div *ngIf="newPaintingForm.controls.secondImage.errors && (newPaintingForm.controls.secondImage.touched || newPaintingForm.controls.secondImage.dirty)">
+                            <div style="color: red;" *ngIf="newPaintingForm.hasError('required','secondImage')">
+                                Second image of painting is Required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="thirdImage">Upload the last image of painting</label>
+                        <div class="custom-file">
+                            <input type="file" accept="image/*" (change)="onSelectFile3($event)" class="form-control" formControlName="thirdImage">
+                        </div>
+                        <div *ngIf="newPaintingForm.controls.thirdImage.errors && (newPaintingForm.controls.thirdImage.touched || newPaintingForm.controls.thirdImage.dirty)">
+                            <div style="color: red;" *ngIf="newPaintingForm.hasError('required','thirdImage')">
+                                Last image of painting is Required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-control-label" for="description">Description</label>
+                        <textarea class="form-control" id="description" name="description" placeholder="description"
+                            formControlName="description"></textarea>
+                        <div *ngIf="newPaintingForm.controls.description.errors && (newPaintingForm.controls.description.touched || newPaintingForm.controls.description.dirty)">
+                            <div style="color: red;" *ngIf="newPaintingForm.hasError('required','description')">
+                                Description is Required
+                            </div>
+                        </div>
+                    </div>
+   
+                    <button type="submit" class="btn btn-primary" [disabled]="!newPaintingForm.valid" (click)="saveForm(newPaintingForm)">SUBMIT THE PAINTING</button>
+                    <br><br>
+                </form>
+            </div>
+        </div>
+    </mat-card>
+</div>
+    

@@ -1,0 +1,51 @@
+.main {
+    min-height: 100%;
+    background-image: linear-gradient(to bottom, white, orange,yellow, violet); 
+}
+.cursor {
+    cursor: pointer;
+  }
+  
+  .column {
+    float: left;
+    width: 33.33%;
+    margin-right: 2px;
+  }
+  
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
+
+  .newartist {
+	width: 140px;
+	height: 180px;
+	border: 5px solid white;
+	border-radius: 100px;
+}
+/* buttons styles the form tag also*/
+#s123 {
+    background: #E45D5D;
+    margin: 20px;
+    color: #FFF;
+    font-size: 0.8em;
+    padding: 0.7em 1.2em;
+    border-radius: 5px;
+    border-bottom: 4px solid #B93838;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+}

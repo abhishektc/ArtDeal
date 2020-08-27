@@ -1,0 +1,12 @@
+<p style="font-size:20px" align="center">{{artist.fullname}}</p>
+<img *ngIf="artist.rankReview === 0" src="../assets/images/0.png" height="5%" width="20%">
+<img *ngIf="artist.rankReview > 0 && artist.rankReview < 1" src="../assets/images/0.5.png" height="5%" width="20%">
+<img *ngIf="artist.rankReview >= 1 && artist.rankReview < 1.5" src="../assets/images/1.png" height="5%" width="20%">
+<img *ngIf="artist.rankReview >= 1.5 && artist.rankReview < 2" src="../assets/images/1.5.png" height="5%" width="20%">
+<img *ngIf="artist.rankReview >= 2 && artist.rankReview < 2.5" src="../assets/images/2.png" height="5%" width="20%">
+<img *ngIf="artist.rankReview >= 2.5 && artist.rankReview < 3" src="../assets/images/2.5.png" height="5%" width="20%">
+<img *ngIf="artist.rankReview >= 3 && artist.rankReview < 3.5" src="../assets/images/3.png" height="5%" width="20%">
+<img *ngIf="artist.rankReview >= 3.5 && artist.rankReview < 4" src="../assets/images/3.5.png" height="5%" width="20%">
+<img *ngIf="artist.rankReview >= 4 && artist.rankReview < 4.5" src="../assets/images/4.png" height="5%" width="20%">
+<img *ngIf="artist.rankReview >= 4.5 && artist.rankReview < 5" src="../assets/images/4.5.png" height="5%" width="20%">
+<img *ngIf="artist.rankReview === 5" src="../assets/images/5.png" height="5%" width="20%">

@@ -1,0 +1,130 @@
+<div class="main">
+    <div class="container" *ngIf="length===0" align="center" style="padding: 2%;">
+        <mat-toolbar style="text-align: center;background-color: rgb(224, 67, 67);">ITEM IN YOUR CART</mat-toolbar>
+        <img src="../assets/images/cartEmpty.png">
+        <h2 style="font-size:25px;color:grey" align="center" >Looks like you have no paintings in your cart. click <a [routerLink]="['/home']"  >here </a>to continue shopping.</h2>
+
+    </div>
+    <div class="container" *ngIf="length > 0" style="padding-top: 1%;padding-bottom: 1%;" >
+        <mat-toolbar style="text-align: center;background-color: rgb(224, 67, 67);">ITEM IN YOUR CART</mat-toolbar>
+        <div style="width: 100%;min-height: 60%;">
+            <mat-card class="mainSub" style="width: 98%;margin: 1% 0.5%;float: left;padding: 1%;" *ngFor="let cart of carts">
+                <div style="float: left;width: 40%;">
+                    <app-user-cart-paintings-image [paintingsid]="cart.paintingsid"></app-user-cart-paintings-image>
+                </div>
+                <div style="float: right;width: 60%;padding: 0% 1%;font-size: 18px;color: grey;">
+                    <p>Cart id: {{cart.id}}</p>
+                    <app-user-cart-child [paintingsid]="cart.paintingsid"></app-user-cart-child>
+                </div>
+                <button type="submit" (click)="removePaintings(cart.id)" id="s123" name="removebtn" class="btn" style="float: right;width: 50%"><span style="color: white">Remove</span></button>
+            </mat-card>
+        </div>
+        <div  style="height: 35%;">
+            <mat-toolbar style="background-color: rgb(224, 67, 67);">CART TOTAL</mat-toolbar>
+            <mat-card style="text-align: center;" *ngIf="!showTotal">    
+                <button  class="btn btn-danger"  (click)="getTotal()">GET CART DETAILS</button>
+            </mat-card>
+            <mat-card class="mainSub"  *ngIf="showTotal">
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <table>
+                            <tr>
+                                <th style="color:grey;width: 300px;font-size: 25px">Items</th>
+                                <th style="color:grey;font-size: 25px">Price</th>
+                            </tr>
+                            <tr *ngFor="let painting of paintings">
+                                <td>{{painting.title}}</td>
+                                <td>{{painting.price | currency:"INR"}}</td>
+                            </tr>    
+                            <mat-divider></mat-divider>
+                            <tr *ngIf="!showTotalAmount" align="center">            
+                                <button  class="btn btn-danger"  (click)="getTotalAmount()">GET TOTAL</button>
+                            </tr>
+                            <ng-container *ngIf="showTotalAmount">
+                                <tr>
+                                    <td>Sub Total</td>
+                                    <td>{{total | currency:"INR"}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Delivery charges</td>
+                                    <td>{{deliveryCharge | currency:"INR"}}</td>
+                                </tr>
+                                <mat-divider></mat-divider>
+                                <tr style="font-weight: 600;">
+                                    <td>Total Amount: </td>
+                                    <td>{{totalAmount | currency:"INR"}}</td>
+                                </tr>
+                                <mat-divider></mat-divider>
+                            </ng-container>
+                        </table>
+                    </div>
+                    <div class="col-md-4">
+                        <div style="float: left;margin-left: 15%;color:grey;font-size:20px;">
+                            <th style="color:grey;width: 300px;font-size: 25px">Shipped to:</th>
+                            <p style="color: grey;">{{user.fullname}}</p>
+                            <p style="color: grey;font-size: 17px;">{{user.address}}, {{user.city}}</p>
+                            <a name="change" style="color:blueviolet;font-size:15px;" (click)="changeAddress()">Change or Edit</a>
+                            <p>
+                                <button type="submit" style="width: 200px;height: 50px;font-size: large;" [disabled]="btnPlaceOrder" class="btn btn-danger" (click)="confirmOrder()">Place order</button>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div style="float: left;margin-left: 15%;color:grey;font-size:20px;">
+                            <th style="font-size: 25px">Payment option</th>
+                            <p>Cash on Delivery</p>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="changeAddre" class="row justify-content-center">
+                    <div class="col-md-8">
+                        <form [formGroup]="userRegisterForm" (ngSubmit)="userForm()" name="form">
+                            <div class="form-group">
+                                <label class="form-control-label" for="address">Address</label>
+                                <textarea class="form-control" id="address" name="address" placeholder="Your Address"
+                                    formControlName="address"></textarea>
+                                <div *ngIf="userRegisterForm.controls.address.errors && (userRegisterForm.controls.address.touched || userRegisterForm.controls.address.dirty)">
+                                    <div style="color: red;" *ngIf="userRegisterForm.hasError('required','address')">
+                                        Address is Required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label" for="city">City</label>
+                                <input type="text" class="form-control" id="city" name="city" placeholder="Your City"
+                                     formControlName="city">
+                                <div *ngIf="userRegisterForm.controls.city.errors && (userRegisterForm.controls.city.touched || userRegisterForm.controls.city.dirty)">
+                                    <div style="color: red;" *ngIf="userRegisterForm.hasError('required','city')">
+                                        City is Required
+                                    </div>
+                                    <div style="color: red;" *ngIf="userRegisterForm.hasError('pattern','city')">
+                                        City is Invalid format(Only characters)
+                                    </div>
+                                    <div style="color: red;" *ngIf="userRegisterForm.hasError('minlength','city')">
+                                        City must be 3 characters long
+                                    </div>
+                                </div>  
+                            </div>
+                            <button type="submit" class="btn btn-primary" [disabled]="!userRegisterForm.valid">Change Address</button>
+                        </form>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+        <br>
+    </div>
+    <div class="container" style="font-size:20px;color:grey;">
+        <h2 style="font-size:35px;color:grey" align="center" >Terms and Conditions</h2>
+        <ul style="list-style-type: circle;">
+            <li>This website acts just as a middle man between artist/seller and buyer.</li>
+            <li>Any kind of commission or charge is not taken from any user.</li>
+            <li>The painting you buy from this website, will keeps the record of each transaction.</li>
+            <li>The responsibility of delivering the painting is taken by the respected artist.</li>
+            <li>We don't support online payment.</li>
+            <li>Only cash on delivery option is available.</li>
+            <li>The delivery of the painting may be done through the courier or by himself/herself, it depends on the artist.</li>
+            <li>The ordered painting delivery status will be sent to the ordered customer.</li>
+            <li>If the painting is not delivered properly, the customer can give the feedback to the website admin.</li>
+        </ul>
+    </div>
+</div>
