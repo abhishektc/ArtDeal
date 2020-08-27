@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Price.java&apos; to &apos;ArtDeal/src/main/java/com.artdeal.mongodb.api.model&apos;&#x0D;&#x0A;- Original project: &apos;ArtDeals&apos;&#x0D;&#x0A;- Destination element: &apos;ArtDeal/src/main/java/com.artdeal.mongodb.api.model&apos;&#x0D;&#x0A;- Original element: &apos;com.artdeal.mongodb.api.model.Price.java&apos;" description="Copy compilation unit" destination="=ArtDeal/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.artdeal.mongodb.api.model" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.artdeal.mongodb.api.model{Price.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1587698648742" units="1" version="1.0"/>
+</session>
